@@ -1,2 +1,2 @@
 # pix2pix
- simple pix2pix implement by keras
+ simple pix2pix implemented by keras
