@@ -1,4 +1,4 @@
-# pix2pix
+# pix2pix(label->facade)
  simple pix2pix implemented by keras<br>
  keras == 1.2.2<br>
  tensorflow == 0.10<br>
