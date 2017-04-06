@@ -217,7 +217,7 @@ def train(epochs,batchsize):
     for e in xrange(1,epochs+1):
         print '-'*15 , 'Epoch %d' % e , '-'*15
         for _ in tqdm(xrange(batchCount)):
-            random_number = np.random.randint(0,pic.shape[0],size=batchsize)
+            random_number = np.random.randint(1,pic.shape[0],size=batchsize)
             batch_pic = pic[random_number]
             batch_target = target[random_number]
             batch_target2 = np.tile(batch_target,(2,1,1,1))
@@ -229,7 +229,7 @@ def train(epochs,batchsize):
             
             dis_input = np.concatenate((concat_pic,batch_target2),axis=-1)
             dloss = discriminator.train_on_batch(dis_input,y_dis)
-            random_number = np.random.randint(0,pic.shape[0],size=batchsize)
+            random_number = np.random.randint(1,pic.shape[0],size=batchsize)
             train_target = target[random_number]
             batch_pic = pic[random_number]
             y_gener = np.ones((batchsize,30,30,1))
