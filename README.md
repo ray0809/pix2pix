@@ -1,5 +1,7 @@
 # pix2pix
  simple pix2pix implemented by keras
+ keras == 1.2.2
+ tensorflow == 0.10
  
  
 # dataset
