@@ -2,10 +2,7 @@
 
 
 import numpy as np
-import glob, pickle
-import os, sys
-import argparse
-import cv2
+import os
 from keras.models import Sequential, Model
 from keras.layers import Dense, Input, merge
 from keras.layers import Reshape,LeakyReLU,ZeroPadding2D
@@ -21,19 +18,10 @@ from keras import backend as K
 from keras.layers.normalization import BatchNormalization
 from keras.objectives import binary_crossentropy
 import tensorflow as tf
-import math
 from tqdm import tqdm
 import scipy.misc as im
 #K.set_image_dim_ordering('th') 
-img_rows = 256
-img_cols = 256
-SHAPE = 256
-BATCH = 4
 IN_CH = 3
-OUT_CH = 3
-LAMBDA = 100
-NF = 64 # number of filter
-BATCH_SIZE = 10
 
 def convolution(inputs,filters,step,stride=2,Normal=True):
     #use for encoder
@@ -201,7 +189,7 @@ def generate_pic(generator,target,e):
 
 np.mean
 def discriminator_on_generator_loss(y_true,y_pred):
-    return K.mean(K.binary_crossentropy(y_pred,y_pred), axis=(1,2,3))
+    return K.mean(K.binary_crossentropy(y_pred,y_true), axis=(1,2,3))
 
 def generator_l1_loss(y_true,y_pred):
     return K.mean(K.abs(y_pred - y_true),axis=(1,2,3))
